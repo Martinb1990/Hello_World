@@ -1,2 +1,12 @@
-# Hello_World
-RiverSafe_Technical_Project
+<!DOCTYPE HTML>
+<html>
+
+<body>
+
+  <script>
+    alert( 'Hello, world!' );
+  </script>
+
+</body>
+
+</html>
