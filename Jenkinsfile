@@ -6,11 +6,5 @@ pipeline {
                 echo 'Hello world!'
             }
         }
-        stage('Test') {
-            steps {
-                bat 'make check || true'
-                junit '**/target/*.xml'
-            }
-        }
     }
 }
