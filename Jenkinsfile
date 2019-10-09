@@ -1,25 +1,25 @@
-pipeline {
-  agent any
-  stages {
-    stage("Build") {
-      steps {
-        echo "Hello World!"
-      }
+node {
+  try {
+    stage('checkout') {
+      checkout scm
     }
-    stage("Test") {
-      steps {
-        echo "testing..."
-      }
+    stage('prepare') {
+      bat "git clean -fdx"
     }
-    stage("Package") {
-      steps {
-        echo "packaging..."
-      }
+    stage('compile') {
+      echo "nothing to compile for hello.sh..."
     }
-    stage("Deploy") {
-      steps {
-        echo "Deploying..."
-      }
+    stage('test') {
+      bat "./test_hello.sh"
+    }
+    stage('package') {
+      bat "tar -cvzf hello.tar.gz hello.sh"
+    }
+    stage('publish') {
+      echo "uploading package..."
+    }
+  } finally {
+    stage('cleanup') {
+      echo "doing some cleanup..."
     }
   }
-}
