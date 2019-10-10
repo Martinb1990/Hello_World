@@ -6,9 +6,9 @@ pipeline {
         echo "Hello World!"
       }
     }
-    stage("Test") {
+    stage("Package") {
       steps {
-        echo "nothing to test..."
+        echo "Packaging..."
       }
     }
     stage("Deploy") {
